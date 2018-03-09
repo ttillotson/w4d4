@@ -1,0 +1,27 @@
+<h1><%= @band.name %></h1>
+
+
+<% @band.albums.each do |album| %>
+  <section>
+    <h4><%= album.title %></h4>
+    <a href="<%= edit_album_url(album) %>"
+      class="edit_link">
+      Edit Album Details
+    </a>
+    <ul>
+      <li><%= album.year %></li>
+      <% if album.studio_recording %>
+        <li>Studio Recording</li>
+      <% else %>
+        <li>Live Recording</li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+
+<a href="<%= bands_url %>">Back to Bands page</a>
+<br>
+<a href="<%= new_band_url %>">Add a Band</a>
+<br>
+<a href="<%= new_album_url %>">Add an Album</a>

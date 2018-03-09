@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+  header {
+   background-color: #BDFD12;
+   overflow: auto;
+  }
+
+  h1 {
+   font-family: 'Krona One', sans-serif;
+  }
+
+  body{
+   background-color: #98D142;
+  }
+
+  header inline-block {
+    float: left;
+    width: 50%;
+    background-color: #BDFD12;
+  }
+
+  .clear_class {
+    clear: both;
+  }
+
+  button {
+    background-color: #f7b180;
+    color: #c45201;
+    border-color: #c45201;
+  }
+
+
+
+  header button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    float: right;
+
+  }

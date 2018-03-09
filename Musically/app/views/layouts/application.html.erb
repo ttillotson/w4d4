@@ -3,12 +3,44 @@
   <head>
     <title>Musically</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <inline-block>
+        <h1>Musically</h1>
+        <h4>Check our libraries!</h4>
+      </inline-block>
+      <% unless current_user.nil? %>
+
+        <inline-block>
+          <%= render 'layouts/logout' %>
+        </inline-block>
+
+      <% else %>
+
+        <inline-block>
+          <%= render 'layouts/login' %>
+        </inline-block>
+        <inline-block>
+          <%= render 'layouts/sign_up' %>
+        </inline-block>
+
+        <br>
+      <% end %>
+    </header>
+    <br>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error|  %>
+        <%= error %>
+      <% end %>
+    <% end %>
+
+    <section class="clear_class">
+      <%= yield %>
+    </section>
   </body>
 </html>
