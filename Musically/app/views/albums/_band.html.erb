@@ -8,7 +8,7 @@
 <form action="<%= action_url %>" method="POST">
   <%= auth_token %>
   <% if patch %>
-    <input type="hidden" name="_method" method="PATCH"/>
+    <input type="hidden" name="_method" value="PATCH"/>
   <% end %>
 
   <label class="padded">Band
@@ -37,10 +37,16 @@
 
   <label class="padded">Studio Album:
     <label for="True">True
-      <input type="radio" name="album[studio_recording]" id="True" value="True">
+      <input type="radio"
+      name="album[studio_recording]"
+      id="True" value="true"
+      <%= 'checked' if !!album.studio_recording%>>
     </label>
     <label for="False">False
-      <input type="radio" name="album[studio_recording]" id="False" value="False">
+      <input type="radio"
+      name="album[studio_recording]"
+      id="False" value="false"
+      <%= 'checked' unless !!album.studio_recording%>>
     </label>
   </label>
   <br>
